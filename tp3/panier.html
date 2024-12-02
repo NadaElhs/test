@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Panier - Terres de Café</title>
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .cart-table th {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .quantity-control button {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            background: none;
+            cursor: pointer;
+        }
+        .quantity-control span {
+            min-width: 30px;
+            text-align: center;
+        }
+        .remove-btn {
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: #999;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <h1>Terres de Café</h1>
+            <a href="shop.html">Retour aux produits</a>
+        </div>
+
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>PRODUIT</th>
+                    <th>PRIX</th>
+                    <th>QUANTITÉ</th>
+                    <th>TOTAL</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Les articles du panier seront insérés ici -->
+            </tbody>
+        </table>
+
+        <div class="cart-total" style="text-align: right; margin-top: 20px;">
+            <h3>Total: <span id="total-amount">0</span> dh</h3>
+        </div>
+    </div>
+
+    <template id="cart-item-template">
+        <tr class="cart-item">
+            <td style="display: flex; align-items: center; gap: 15px;">
+                <img src="" alt="Product">
+                <span class="product-name"></span>
+            </td>
+            <td class="product-price"></td>
+            <td>
+                <div class="quantity-control">
+                    <button class="decrease">-</button>
+                    <span class="quantity">1</span>
+                    <button class="increase">+</button>
+                </div>
+            </td>
+            <td class="item-total"></td>
+            <td>
+                <button class="remove-btn">×</button>
+            </td>
+        </tr>
+    </template>
+
+    <script src="panier.js"></script>
+</body>
+</html>
